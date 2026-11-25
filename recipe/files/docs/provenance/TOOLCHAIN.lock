@@ -1,0 +1,107 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "apt",
+      "reason": "CVE-2026-109518: apt 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "libapt-pkg6.0t64",
+      "reason": "CVE-2026-109518: libapt-pkg6.0t64 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "CVE-2026-103111, CVE-2026-86145, CVE-2026-89156, CVE-2026-89157 \u2026: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    }
+  ],
+  "binaries_from_component_images": [],
+  "binaries_from_source": [
+    {
+      "name": "fluent-bit",
+      "out_path": "/fluent-bit/bin/fluent-bit",
+      "verify_subcmd": "--version"
+    }
+  ],
+  "build_method": "source-rebuild-c",
+  "chain_id": 1165,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "offline_builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_base": {
+    "kind": "chisel",
+    "provides": [
+      "fluent-bit"
+    ],
+    "shell": true,
+    "slices": [
+      "libssl3t64_libs",
+      "libsasl2-2_libs",
+      "libyaml-0-2_libs",
+      "libsystemd0_libs",
+      "zlib1g_libs",
+      "libstdc++6_libs"
+    ],
+    "tools": [
+      "bash",
+      "id"
+    ]
+  },
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "fluentbit",
+  "source": {
+    "build_cmds": [
+      "cmake -S . -B build -DFLB_RELEASE=On -DFLB_SIMD=On -DFLB_JEMALLOC=On -DFLB_TLS=On -DFLB_SHARED_LIB=Off -DFLB_EXAMPLES=Off -DFLB_HTTP_SERVER=On -DFLB_LOG_NO_CONTROL_CHARS=On -DFLB_CHUNK_TRACE=Off -DFLB_IN_SYSTEMD=On -DFLB_IN_KAFKA=On -DFLB_OUT_KAFKA=On -DFLB_OUT_PGSQL=Off -DFLB_IN_EXEC=Off -DFLB_WASM=Off -DFLB_IN_EXEC_WASI=Off -DFLB_FILTER_WASM=Off -DFLB_WAMRC=Off -DFLB_PROXY_GO=Off -DFLB_CUSTOM_CALYPTIA=Off -DFLB_IN_CALYPTIA_FLEET=Off -DFLB_OUT_CALYPTIA=Off -DFLB_ZIG=Off",
+      "cmake --build build -j\"$(nproc)\"",
+      "install -d /fluent-bit/bin /fluent-bit/etc && install -m 0755 build/bin/fluent-bit /fluent-bit/bin/fluent-bit && install -m 0644 conf/parsers.conf conf/parsers_ambassador.conf conf/parsers_java.conf conf/parsers_extra.conf conf/parsers_openstack.conf conf/parsers_cinder.conf /fluent-bit/etc/",
+      "/fluent-bit/bin/fluent-bit --version > /tmp/flb.version && cat /tmp/flb.version && grep -qF 'Fluent Bit v@VERSION_BARE@' /tmp/flb.version && grep -qF 'Git commit: @COMMIT@' /tmp/flb.version"
+    ],
+    "build_env": {},
+    "build_packages": [
+      "build-essential",
+      "cmake",
+      "flex",
+      "bison",
+      "pkg-config",
+      "libssl-dev",
+      "libsasl2-dev",
+      "libyaml-dev",
+      "libsystemd-dev",
+      "zlib1g-dev",
+      "ca-certificates"
+    ],
+    "build_system": "cmake",
+    "builder_image": "ubuntu:24.04",
+    "commit": "e0149076aeff009d35fd495e55379cb78f1eb53f",
+    "commit_epoch": 1794188397,
+    "install_prefix": "/fluent-bit",
+    "ref": "v5.2.0",
+    "repo": "https://github.com/fluent/fluent-bit",
+    "source_date_epoch": 1795161048,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release v5.2.0-CE-ubuntu24.04-r2 was cut (2026-11-20T07:50:48Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit e0149076aeff, dated 2026-11-09T01:39:57Z (source.commit_epoch).",
+    "source_prep": [
+      "sed -i '/^message(STATUS \"Git hash: /i set(FLB_GIT_HASH \"@COMMIT@\")' CMakeLists.txt && grep -qF 'set(FLB_GIT_HASH \"@COMMIT@\")' CMakeLists.txt"
+    ],
+    "vendored_deps": true
+  },
+  "version": "v5.2.0"
+}

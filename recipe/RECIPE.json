@@ -1,0 +1,295 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "fluentbit",
+ "tag": "v5.2.0-CE-ubuntu24.04-r2",
+ "tarball": "ReadyStack-fluentbit-v5.2.0-CE-ubuntu24.04-r2.tar.gz",
+ "tarball_sha256": "1505a7207dee959e9933a413107bdc61b61ace448665c5115ae4e04ad14b28bc",
+ "kit_root": "v5.2.0-CE-ubuntu24.04-r2",
+ "generated_at": "2026-11-20T18:41:17Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/fluent/fluent-bit",
+   "ref": "v5.2.0",
+   "commit": "e0149076aeff009d35fd495e55379cb78f1eb53f",
+   "url": "https://github.com/fluent/fluent-bit/tree/e0149076aeff009d35fd495e55379cb78f1eb53f",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/fluent/fluent-bit",
+    "ref": "v5.2.0"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel/releases/download/v1.5.1/chisel_v1.5.1_linux_amd64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel-releases/archive/f2600d3aa90123db6d44bb1441a99afc8b5847d9.tar.gz"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5",
+    "image": "golang:1.27.3-bookworm",
+    "digest": "sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5"
+   },
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+   "builder_images": [
+    "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   ]
+  },
+  "build_method": "source-rebuild-c",
+  "source_date_epoch": 1795161048,
+  "source_date_epoch_utc": "2026-11-20T07:50:48Z",
+  "target": {
+   "image_manifest_digest": "sha256:e968022ca2fa8d2f6ded3e00b7338a57fe598425b2da5f382f23b19d5ecd90f7",
+   "config_digest": "sha256:12ed6049d42deb39c6318b4a09bd16644a22dd6c9d086b70045cbdb6192c0270",
+   "image": "readystack/fluentbit:v5.2.0-CE-ubuntu24.04-r2"
+  },
+  "checksummed_files": 26003
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 262,
+   "sha256": "c74d67688b6c48929450c3d8707c9b162330e8ed3c6d8eedde41f239185b20f2",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 3866530,
+   "sha256": "37a9e91b1b7c1e93a544293293e54aa28b70aadded66caa994605bf871a58d1f",
+   "lines": 26003,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 6139,
+   "sha256": "419daec52b002155a8e51b9e78abb34288160b62b41ab71993a8e0a1d153fdaf",
+   "lines": 73,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 6139,
+   "sha256": "419daec52b002155a8e51b9e78abb34288160b62b41ab71993a8e0a1d153fdaf",
+   "lines": 73,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 6139,
+   "sha256": "419daec52b002155a8e51b9e78abb34288160b62b41ab71993a8e0a1d153fdaf",
+   "lines": 73,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 6550,
+   "sha256": "c5bae232bf16d7690f4997dcfbd13bc7ef035b73d56353b115c5c3eed2e10620",
+   "lines": 53,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 2558036,
+   "sha256": "bc6811db32166f18e98c224acba0698fe040cbd59373de9f0500ed2c69560d60",
+   "lines": 30583,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 2098356,
+   "sha256": "f42094155a07a0d904fc0bf3e45e3eb08395a601e0f89a2731ada4e55235f598",
+   "lines": 26005,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3304,
+   "sha256": "0c62b146dd98b0dac00a9464385f5fd9d23e50464dfcccd89c9c4a10a82d650d",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "3eedf63c1ce1bc313b6a04050d6875fa10bad8de44a8f989ea8ecda9e393b0f4",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 290,
+   "sha256": "b784253a88c2b8dde78cb3606820df9384348e71c51dfc8697e7962486385062",
+   "lines": 6,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2632,
+   "sha256": "895bebbda149539765da3453d328ea842e3860e329a3b010552e7f1c4edd7243",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6118,
+   "sha256": "8a8f46915116a298d2c9969d2afd1077d2082cd9f0728aad0bb60de697832306",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2041,
+   "sha256": "d3ce42f6fbdca52be99b8389ece45ba75cee51145ab0cad073572cd1ca00852b",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 64,
+   "sha256": "fadf8c4c3f3df95f4fb0d7455fbd9b419736bee586702266f9ac1dca249c7a58",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 7800,
+   "sha256": "e6d0c523b04c9eb90a2f94d4d842432dac3a4c73e359043f486dbb35fee94e07",
+   "lines": 105,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 651,
+   "sha256": "7cf1701d27bfc99ff27c9354222252c2ce16e6e6e89bec3b3cc03f370ed0594d",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 257137,
+   "sha256": "f552248b8be5fb9071c5e5ed25610e6c1b51c30fe5ec7b2a87c3f31769beff12",
+   "lines": 5007,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 310,
+   "sha256": "75c8d1156a13e10c0ba189a2f012079d5f977878cdf5efda17e697e33c6099db",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 935,
+   "sha256": "4f4549fc480422d51e155fa5d022405fc16278546b6914ba9ccb0f50ee484604",
+   "lines": 29,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 4070,
+   "sha256": "f9ff4f6677839536cae44abd540f3b19c58ce4a7fb9adaa80b2cdb58a8b2cb96",
+   "lines": 107,
+   "public": "account"
+  },
+  {
+   "path": "fluent-bit.conf",
+   "size": 948,
+   "sha256": "1032c729318534cb9787b890bc423b3f5c8b54dea322c30655d22898a19d364d",
+   "lines": 28,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1443,
+   "sha256": "5ec7831fa26c9af799f100d7b805995e221874614b7ea1588cb595e3380886fd",
+   "lines": 38,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.go",
+   "size": 3179,
+   "sha256": "a8bdee17a3581f8685f58d7a8ccb7524153829f70b19c9d75e323c589de2ad8f",
+   "lines": 117,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.mod",
+   "size": 40,
+   "sha256": "a480b79acf98e4275725058076ad2a8684a2eee06c27f4337b75339c198ca92d",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 16,
+   "bytes": 330407104
+  },
+  "docs": {
+   "files": 12945,
+   "bytes": 180619799
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 13014,
+   "bytes": 338393378
+  }
+ },
+ "redacted_files": 0
+}

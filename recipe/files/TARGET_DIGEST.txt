@@ -1,0 +1,6 @@
+image_manifest_digest=sha256:e968022ca2fa8d2f6ded3e00b7338a57fe598425b2da5f382f23b19d5ecd90f7
+config_digest=sha256:12ed6049d42deb39c6318b4a09bd16644a22dd6c9d086b70045cbdb6192c0270
+tag=readystack/fluentbit:v5.2.0-CE-ubuntu24.04-r2
+probe_port=2020
+probe_path=/api/v2/health
+probe_timeout=180

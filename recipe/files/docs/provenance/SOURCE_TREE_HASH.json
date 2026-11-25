@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "fluentbit",
+  "repo": "https://github.com/fluent/fluent-bit",
+  "ref": "v5.2.0",
+  "commit": "e0149076aeff009d35fd495e55379cb78f1eb53f",
+  "tree_listing_sha256": "79d68878a23c00b215452f202735042d5e0c4b7257e1d81d33632bc969c9a82a",
+  "file_count": 12898
+}
